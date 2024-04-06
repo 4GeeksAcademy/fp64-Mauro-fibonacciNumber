@@ -1,11 +1,27 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+const FIRST_POSITION = 0;
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+const _getFibonacciNumber = (index) => {
+  if (index < 2){
+    return index;
+  }
+  return _getFibonacciNumber(index - 1) + _getFibonacciNumber(index - 2);
+}
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+const _isLessThanZero = (number) => {
+  return number < 0;
+}
+
+const _printFibonacciNumber = (fibonacciNumber) => {
+  console.log(_getFibonacciNumber(fibonacciNumber));
+}
+
+const getFibonacciSequece = (positionQuantity) => {
+  if (_isLessThanZero(positionQuantity)){
+    return _getFibonacciNumber(FIRST_POSITION);
+  }
+  _printFibonacciNumber(positionQuantity);
+  const previousPosition = positionQuantity -1;
+  return getFibonacciSequece(previousPosition);
+}
+
+getFibonacciSequece(10);
